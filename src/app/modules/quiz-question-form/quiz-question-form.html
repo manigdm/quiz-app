@@ -1,0 +1,31 @@
+<div class="col-lg-10 col-md-10 col-sm-12 col-xs-12 quiz-question-container">
+	<form name="quizQuestionForm"  #quizQuestionForm="ngForm" novalidate autocomplete="off">
+		<div class="quiz-quest-box" [ngClass]="{'error':!quiz['answers'][quizDetail.id] && quizQuestionForm.submitted}" *ngFor="let quizDetail of quizDetails ; let idx = index">
+			<div class="question-row">
+				<h6>
+					<span>Q{{quizDetail.id}}. </span>
+					<span>{{quizDetail.question}}</span>
+					<span *ngIf="quizResult">
+						<span *ngIf="!quizDetail.correct" class="incorrect-ans">incorrect</span>
+						<span *ngIf="quizDetail.correct" class="correct-ans">correct</span>
+					</span>
+				</h6>
+			</div>
+			<div class="answer-option-row">
+				<ng-select class="select-box" [(ngModel)]="quiz['answers'][quizDetail.id]" (change)="onSelectedAns($event, quizDetail)" #quiz_question_{{idx}} = "ngModel" name="quiz_question{{idx}}" required [disabled]="quizResult">
+					<ng-option *ngFor="let answer of quizDetail.answers" [value]="answer">{{answer.answer}}</ng-option>
+				</ng-select>
+			</div>
+		</div>
+		<div *ngIf="activeRouter != 'quiz/result' && quizDetails?.length > 0" class="col-lg-12 col-md-12 col-sm-12 col-xs-12 btn-container">
+			<div class="row">
+				<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 no-padding-left">
+					<button class="col-lg-12 col-md-12 btn btn-green" type="submit" (click)="submitQuiz(quizQuestionForm);">Submit</button>
+				</div>
+				<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 no-padding-right">
+					<button class="col-lg-12 col-md-12 btn btn-gray" type="button" (click)="clearQuizData();" >Clear</button>
+				</div>
+			</div>
+		</div>
+	</form>
+</div>

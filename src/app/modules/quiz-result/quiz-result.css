@@ -1,0 +1,26 @@
+.btn-blue{
+    border-radius: 3px;
+    border: 1px solid #aa8eff;
+    font-size: 14px;
+    font-weight: 500;
+    color: #aa8eff;
+    padding: 7px 27px;
+    cursor: pointer;
+}
+
+.btn-blue:hover{
+	background-color: #aa8eff;
+	color: #fff;
+}
+.btn-blue:focus{
+    outline: none;
+    box-shadow: none;
+}
+
+.result-text, .redo{
+	padding-bottom: 20px;
+}
+
+.text-gray{
+	color: #656464;
+}

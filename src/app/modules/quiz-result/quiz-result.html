@@ -1,0 +1,13 @@
+<section class="container">
+   <div class="main-container">
+   		<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+   			<quiz-question-form [quizDetails] = "quizDetails"></quiz-question-form>
+   		</div>
+   		<div *ngIf="!quizDetails" class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center text-gray result-text">
+   			<h5>Your result has been remove from admin, If you want do test again. <br> plaese click below "Redo" button</h5>
+   		</div>
+   		<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center redo">
+			   <button class="col-lg-1 col-md-1 btn btn-blue" type="button" routerLink="/quiz/test">Redo</button>
+   		</div>
+	</div>
+</section>
